@@ -145,10 +145,6 @@ button {
     font-size: 12px;
 }
 
-.chatbot {
-    min-height: 100vh;
-}
-
 #chatbot-toggler {
     position: fixed;
     bottom: 30px;
