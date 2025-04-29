@@ -21,29 +21,28 @@ const createMessageElement = (content, ...classes) => {
 const generateBotResponse = async (incomingMessageDiv) => {
     const messageElement = incomingMessageDiv.querySelector(".message-text");
 
-
     const requestOptions = {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-            contents: [{ 
-                parts: [{ text: userData.message }]
-             }]
-        })
-    }
+        body: JSON.stringify({ message: userData.message })
+    };
 
     try {
-       
+        const response = await fetch('http://localhost:5000/chatbot', requestOptions);
+        if (!response.ok) {
+            throw new Error('Erro ao obter resposta do servidor');
+        }
+        const data = await response.json();
+        messageElement.innerHTML = data.response;
     } catch (error) {
         console.log(error);
-        messageElement.innerHTML = error.message;
+        messageElement.innerHTML = "Desculpe, ocorreu um erro ao processar sua mensagem.";
         messageElement.style.color = "#ff0000";
     } finally {
         incomingMessageDiv.classList.remove("thinking");
         chatBody.scrollTo({ top: chatBody.scrollHeight, behavior: "smooth" });
     }
 }
-
 const handleOutgoingMessage = (e) => {
     e.preventDefault();
     userData.message = messageInput.value.trim();
