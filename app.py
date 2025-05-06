@@ -1,3 +1,5 @@
+import os
+
 from flask import Flask, jsonify, request
 from flask_cors import CORS
 
@@ -106,4 +108,5 @@ def encontrar_jogador(mensagem, jogadores):
     return None
 
 
-app.run(port=5000, host='localhost', debug=True)
+port = int(os.environ.get("PORT", 5000))
+app.run(host="0.0.0.0", port=port)
