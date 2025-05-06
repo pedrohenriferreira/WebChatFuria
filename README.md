@@ -66,3 +66,5 @@ python app.py
 - Comunicação em tempo real via WebSocket.
 - Interface web responsiva.
 - Um chatbot integrado com comandos predefinidos.
+
+acesse em: https://web-chat-furia.vercel.app/
