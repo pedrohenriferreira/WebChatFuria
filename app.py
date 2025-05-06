@@ -57,6 +57,9 @@ conquistas = [
     }
 ]
 
+@app.route("/")
+def home():
+    return "Chatbot rodando com sucesso!"
 
 
 @app.route('/chatbot', methods=['POST'])

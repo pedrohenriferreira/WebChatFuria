@@ -28,7 +28,7 @@ const generateBotResponse = async (incomingMessageDiv) => {
     };
 
     try {
-        const response = await fetch('http://localhost:5000/chatbot', requestOptions);
+        const response = await fetch('https://webchatfuria.onrender.com/chatbot', requestOptions);
         if (!response.ok) {
             throw new Error('Erro ao obter resposta do servidor');
         }
