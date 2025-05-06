@@ -8,7 +8,7 @@ jogadores = [
     {
         'name': 'Gabriel Toledo',
         'nickname': 'Fallen',
-        'position': 'AWper / IGL',
+        'position': 'AWper / In-game Leader',
         'country': 'Brasil' 
     },
     {
